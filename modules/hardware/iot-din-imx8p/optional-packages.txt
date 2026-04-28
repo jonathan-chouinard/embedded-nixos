@@ -1,0 +1,24 @@
+# Optional packages for IOT-DIN-IMX8PLUS debugging and peripheral interaction
+#
+# Add these to environment.systemPackages in your configuration as needed:
+#
+# environment.systemPackages = with pkgs; [
+#   can-utils      # CAN bus: candump, cansend, cangen, etc.
+#   minicom        # Serial terminal
+#   picocom        # Lightweight serial terminal
+#   modemmanager   # Cellular modem management (mmcli)
+#   libqmi         # Qualcomm QMI modem tools
+#   libmbim        # MBIM modem tools
+#   libgpiod       # GPIO tools: gpioget, gpioset, gpioinfo
+#   i2c-tools      # I2C debugging: i2cdetect, i2cget, i2cset
+#   tpm2-tools     # TPM 2.0 tools
+#   gpsd           # GPS daemon (also enable services.gpsd)
+# ];
+#
+# GPS configuration (if needed):
+#
+# services.gpsd = {
+#   enable = true;
+#   devices = ["/dev/ttyUSB1"];
+#   readonly = true;
+# };
