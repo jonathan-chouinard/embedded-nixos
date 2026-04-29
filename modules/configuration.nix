@@ -29,6 +29,12 @@
     settings = {
       experimental-features = ["nix-command" "flakes"];
       auto-optimise-store = true;
+      substituters = [
+        "http://192.168.100.173:8080/embedded"
+      ];
+      trusted-public-keys = [
+        "embedded:pGYZ9VjTc5A1Mdtvk0thPj8f7JU3z/75vCt5nsR7TvE="
+      ];
     };
 
     gc = {
