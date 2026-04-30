@@ -5,6 +5,20 @@
   ...
 }: let
   linuxCompulab = pkgs.callPackage ./kernel.nix {};
+
+  # eMMC installation script with runtime dependencies
+  installEmmc = pkgs.writeShellApplication {
+    name = "nixos-install-emmc";
+    runtimeInputs = with pkgs; [
+      rsync
+      dosfstools # mkfs.vfat
+      e2fsprogs # mkfs.ext4
+      util-linux # findmnt, sfdisk, mount, umount
+      parted # partprobe
+      coreutils # dd, sed, sync, mkdir, rmdir, sleep
+    ];
+    text = builtins.readFile ./install-emmc.sh;
+  };
 in {
   imports = [
     ./peripherals.nix
@@ -70,4 +84,7 @@ in {
     enable = true;
     cpuFreqGovernor = lib.mkDefault "ondemand";
   };
+
+  # Include eMMC installation tool
+  environment.systemPackages = [installEmmc];
 }
