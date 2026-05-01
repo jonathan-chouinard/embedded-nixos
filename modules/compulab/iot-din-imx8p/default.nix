@@ -22,9 +22,9 @@
 in {
   imports = [
     ./peripherals.nix
+    ./image.nix
   ];
 
-  networking.hostName = "iot-din-imx8p";
   nixpkgs.hostPlatform = lib.mkDefault "aarch64-linux";
 
   # Disable kernel config checks - Compulab's config doesn't have NixOS expected options

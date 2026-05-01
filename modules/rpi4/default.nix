@@ -1,16 +1,10 @@
 # Raspberry Pi 4 hardware configuration
-{
-  inputs,
-  lib,
-  ...
-}: {
+{lib, ...}: {
   imports = [
-    # Vendor kernel and proper hardware initialization
-    inputs.nixos-hardware.nixosModules.raspberry-pi-4
+    ./image.nix
   ];
 
-  # Set hostname for this device
-  networking.hostName = "rpi4-device";
+  nixpkgs.hostPlatform = lib.mkDefault "aarch64-linux";
 
   # Override nixos-hardware's initrd modules to avoid dw-hdmi error from vc4
   boot.initrd.availableKernelModules = lib.mkForce [
@@ -36,6 +30,4 @@
       options = ["nofail" "noauto"];
     };
   };
-
-  nixpkgs.hostPlatform = lib.mkDefault "aarch64-linux";
 }
