@@ -8,6 +8,7 @@
   outputs = {nixos-hardware, ...}: {
     nixosModules = {
       compulab-iot-din-imx8p = ./modules/compulab/iot-din-imx8p;
+      beaglebone-black = ./modules/beagleboard/beaglebone-black;
       rpi4 = {
         imports = [
           nixos-hardware.nixosModules.raspberry-pi-4
