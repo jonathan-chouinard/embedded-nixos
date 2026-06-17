@@ -7,6 +7,7 @@
 
   outputs = { nixos-hardware, ... }: {
     nixosModules = {
+      beaglebone-black = ./modules/beagleboard/beaglebone-black;
       rpi4 = {
         imports = [
           nixos-hardware.nixosModules.raspberry-pi-4

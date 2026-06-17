@@ -6,6 +6,7 @@ NixOS hardware support for embedded devices.
 
 | Device           | SoC             | Description                         |
 |------------------|-----------------|-------------------------------------|
+| beaglebone-black | TI AM335x       | BeagleBoard BeagleBone Black        |
 | rpi4             | BCM2711         | Raspberry Pi 4                      |
 
 All modules provide SD/eMMC image generation.
