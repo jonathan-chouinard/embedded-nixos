@@ -2,6 +2,7 @@
 { lib, pkgs, ... }:
 let
   linuxCompulab = pkgs.callPackage ./kernel.nix { };
+  installEmmc = pkgs.callPackage ../../pkgs/install-emmc.nix { };
 in
 {
   imports = [
@@ -78,5 +79,6 @@ in
   };
 
   environment.systemPackages = [
+    installEmmc
   ];
 }

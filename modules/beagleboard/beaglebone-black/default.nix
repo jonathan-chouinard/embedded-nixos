@@ -2,6 +2,7 @@
 { lib, pkgs, ... }:
 let
   linuxBeagleBone = pkgs.callPackage ./kernel.nix { };
+  installEmmc = pkgs.callPackage ../../pkgs/install-emmc.nix { };
 in
 {
   imports = [
@@ -55,5 +56,6 @@ in
   };
 
   environment.systemPackages = [
+    installEmmc
   ];
 }
