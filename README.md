@@ -6,6 +6,7 @@ NixOS hardware support for embedded devices.
 
 | Device           | SoC             | Description                         |
 |------------------|-----------------|-------------------------------------|
+| rpi4             | BCM2711         | Raspberry Pi 4                      |
 
 All modules provide SD/eMMC image generation.
 Devices with eMMC storage include a `nixos-install-emmc` tool for flashing to internal eMMC.
